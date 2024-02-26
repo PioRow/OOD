@@ -30,5 +30,10 @@ namespace OOD.Objects
         public float Weight { get { return _weight; } set { _weight = value; } }
         public string Code { get { return _code; } set { _code = value; } }
         public string Description { get { return _description; } set { _description = value; } }
+        public override string ToString()
+        {
+            return $"ID: {_id}, Weight: {_weight}, Code: {_code}, Description: {_description}";
+        }
+
     }
 }

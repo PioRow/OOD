@@ -39,5 +39,9 @@ namespace OOD.Objects
         public long Age { get { return _age; } set { _age = value; } }
         public string Phone { get { return _phone;}set{ _phone = value; } }
         public string Email { get { return _email;}set{ _email = value; } }
+        public override string ToString()
+        {
+            return $"ID: {_id}, Name: {_name}, Age: {_age}, Phone: {_phone}, Email: {_email}";
+        }
     }
 }

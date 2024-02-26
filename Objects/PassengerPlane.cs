@@ -28,5 +28,10 @@ namespace OOD.Objects
         public short FistClassSize { get { return _firstClassSize; }set { _firstClassSize = value; } }
         public short SecondClassSize { get { return _secondClassSize; } set { _secondClassSize = value; } }
         public short EconomyClassSize { get { return _economyClassSize; } set { _economyClassSize = value; } }
+        public override string ToString()
+        {
+            return base.ToString()+ $"First Class Size: {_firstClassSize}, Second Class Size: {_secondClassSize}," +
+                $" Economy Class Size: {_economyClassSize}";
+        }
     }
 }

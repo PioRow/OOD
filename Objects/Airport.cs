@@ -44,5 +44,10 @@ namespace OOD.Objects
         public float Latitude { get { return _latiitude; }set { _latiitude = value; } }
         public float Amsl { get { return _amsl; } set { _amsl = value; } }
         public string Country { get { return _country; } set { _country = value; } }
+        public override string ToString()
+        {
+            return $"ID: {_id}, Name: {_name}, Code: {_code}, Longitude: {_longitude}, Latitude: {_latiitude}" +
+                $", AMSL: {_amsl}, Country: {_country}";
+        }
     }
 }

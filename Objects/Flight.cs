@@ -62,5 +62,12 @@ namespace OOD.Objects
         public long PlaneId { set { _planeId = value; } get { return _planeId; } }
         public List<long> CrewIds { set { _crewIds = value; } get { return _crewIds; } }
         public List<long> LoadIds { set { _loadIds = value; } get { return _loadIds; } }
+
+        public override string ToString()
+        {
+            return $"ID: {_id}, Origin ID: {_orginId}, Target ID: {_targetId}, Takeoff Time: {_takeoffTime}, " +
+                $"Landing Time: {_landingTime}, Longitude: {_longitude}, Latitude: {_latitude}, AMSL: {_amsl}," +
+                $" Plane ID: {_planeId}, Crew IDs: [{string.Join(", ", _crewIds)}], Load IDs: [{string.Join(", ", _loadIds)}]";
+        }
     }
 }

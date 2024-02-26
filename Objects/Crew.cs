@@ -24,6 +24,10 @@ namespace OOD.Objects
         }
         public short Practice { get { return _practice; } set {_practice=value;} }
         public string Role { get { return _role; }set { _role=value;} }
+        public override string ToString()
+        {
+            return base.ToString()+$" practice:{_practice}, role{_role}";
+        }
 
     }
 }

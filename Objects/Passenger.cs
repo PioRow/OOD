@@ -23,5 +23,9 @@ namespace OOD.Objects
         }
         public string Class { get { return _class; } set {  _class = value; } }
         public long Miles { get { return _miles;}set { _miles = value; } }
+        public override string ToString()
+        {
+            return base.ToString()+ $" class:{_class}, miles:{_miles}";
+        }
     }
 }

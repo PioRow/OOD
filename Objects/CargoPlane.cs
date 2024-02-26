@@ -20,5 +20,9 @@ namespace OOD.Objects
             _load = float.MinValue;
         }
         public float Load { get { return _load; }set { _load = value; } }
+        public override string ToString()
+        {
+            return base.ToString()+$" Load:{_load}";
+        }
     }
 }

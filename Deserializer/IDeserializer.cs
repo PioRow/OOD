@@ -31,7 +31,7 @@ namespace OOD.Deserializer
         {
             List<object> result = new List<object>();
             
-            String line;
+            string? line;
             using (StreamReader sr = new StreamReader(filepath))
             {
                 line=sr.ReadLine();

@@ -30,6 +30,10 @@ namespace OOD.Objects
         public string Serial { get { return _serial; } set { _serial = value; } }
         public string Code { get { return _code; } set { _code = value; } }
         public string Model { get { return _model; } set { _model = value; } }
+        public override string ToString()
+        {
+            return $"ID: {_id}, Serial: {_serial}, Code: {_code}, Model: {_model}";
+        }
 
     }
 }
