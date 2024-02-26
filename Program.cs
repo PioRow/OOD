@@ -1,5 +1,7 @@
 ﻿using OOD.Deserializer;
 using OOD.Objects;
+using OOD.Serializers;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Text.Json;
 using System.Xml.Serialization;
@@ -11,14 +13,15 @@ namespace OOD
         {
             Console.WriteLine("[74;104;111;297;315;310;314]".Substring(1, "[74;104;111;297;315;310;314]".Length - 2));
             string F = "example_data.ftr";
-            ReadFile(F);
+            var objs=ReadFile(F);
+            SerializeObjects("data.json", objs);
+
         }
-        public static void Test()
+        public static void SerializationExample()
         {
 
             Crew c = new Crew(1, "Agata", 20, "609509939", "agata.steciuk.stud@pw.edu.pl", 12, "Studnetka");
             Crew Kawa = new Crew(2, "Kawa", 19, "530908935", "wiktoria.kawa.stud@pw.edu.pl", 18, "studentka");
-
             XmlSerializer ser = new XmlSerializer(typeof(Crew));
             using (StreamWriter sw = new StreamWriter("data.xml"))
             {
@@ -32,12 +35,17 @@ namespace OOD
             }
 
         }
-        public static void  ReadFile(string filename)
+        public static List<object> ReadFile(string filename)
         {
             string path=Directory.GetCurrentDirectory();
-            var deserializer = new FTRDeserializer();
-            deserializer.deserialize(path + "\\" + filename);
+            IDeserializer deserializer = new FTRDeserializer();
+           return deserializer.deserialize(path + "\\" + filename);
 
+        }
+        public static void SerializeObjects(string file, ICollection<object> objects)
+        {
+            ISerializer serializer = new Serializers.JsonSerializer();
+            serializer.serialize(file, objects);
         }
     }
 
