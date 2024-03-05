@@ -8,6 +8,7 @@ namespace OOD.Objects
 {
     public class PassengerPlane : Plane
     {
+        public string TypeId { get; }
         private short _firstClassSize;
         private short _secondClassSize;
         private short _economyClassSize;
@@ -15,12 +16,14 @@ namespace OOD.Objects
         public PassengerPlane(long id, string serial, string code, string model, short firstClassSize, short secondClassSize, short economyClassSize)
             : base(id, serial, code, model)
         {
+            TypeId = "PP";
             _firstClassSize = firstClassSize;
             _secondClassSize = secondClassSize;
             _economyClassSize = economyClassSize;
         }
         public PassengerPlane() : base()
         {
+            TypeId = "PP";
             _firstClassSize = -1;
             _secondClassSize = -1;
             _economyClassSize = -1;
@@ -30,7 +33,7 @@ namespace OOD.Objects
         public short EconomyClassSize { get { return _economyClassSize; } set { _economyClassSize = value; } }
         public override string ToString()
         {
-            return base.ToString()+ $"First Class Size: {_firstClassSize}, Second Class Size: {_secondClassSize}," +
+            return $"{TypeId} "+base.ToString()+ $"First Class Size: {_firstClassSize}, Second Class Size: {_secondClassSize}," +
                 $" Economy Class Size: {_economyClassSize}";
         }
     }

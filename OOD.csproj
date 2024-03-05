@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="NetworkSourceSimulator">
+      <HintPath>bin\Debug\net8.0\NetworkSourceSimulator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

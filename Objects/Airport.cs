@@ -10,6 +10,7 @@ namespace OOD.Objects
 {
     public class Airport
     {
+        public string TypeId { get; }
         private long _id;
         private string _name;
         private string _code;
@@ -19,6 +20,7 @@ namespace OOD.Objects
         private string _country;
         public Airport(long id,string name, string code, float longitude, float latiitude, float amsl, string country)
         {
+            TypeId = "AI";
             _id= id;
             _name = name;
             _code = code;
@@ -29,6 +31,7 @@ namespace OOD.Objects
         }
         public Airport()
         {
+            TypeId = "AI";
             _id = -1;
             _name = String.Empty;
             _code = String.Empty;
@@ -37,6 +40,7 @@ namespace OOD.Objects
             _amsl = float.MinValue;
             _country = String.Empty;
         }
+
         public long Id { get {  return _id; }set { _id = value; } }
         public string Name { get { return _name; }set { _name = value; } }
         public string Code { get { return _code; } set {  _code = value; } }
@@ -46,7 +50,7 @@ namespace OOD.Objects
         public string Country { get { return _country; } set { _country = value; } }
         public override string ToString()
         {
-            return $"ID: {_id}, Name: {_name}, Code: {_code}, Longitude: {_longitude}, Latitude: {_latiitude}" +
+            return $"{TypeId} ID: {_id}, Name: {_name}, Code: {_code}, Longitude: {_longitude}, Latitude: {_latiitude}" +
                 $", AMSL: {_amsl}, Country: {_country}";
         }
     }

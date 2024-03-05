@@ -8,17 +8,20 @@ namespace OOD.Objects
 {
     public  class Crew:Person
     {
+        public  string TypeId { get; }
         private short _practice;
         private string _role;
 
         public Crew(long id, string name, long age, string phone, string email,short practice,string role) 
             : base(id, name, age, phone, email)
         {
+            TypeId = "C";
             _practice = practice;
             _role = role;
         }
         public Crew():base()
-        {    
+        {
+            TypeId = "C";
             _practice = -1;
             _role = String.Empty;
         }
@@ -26,7 +29,7 @@ namespace OOD.Objects
         public string Role { get { return _role; }set { _role=value;} }
         public override string ToString()
         {
-            return base.ToString()+$" practice:{_practice}, role{_role}";
+            return $"{TypeId} "+base.ToString()+$" practice:{_practice}, role{_role}";
         }
 
     }

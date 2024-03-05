@@ -8,12 +8,14 @@ namespace OOD.Objects
 {
     public class Cargo
     {
+        public  string TypeId { get;}
         private long _id;
         private float _weight;
         private string _code;
         private string _description;
         public Cargo(long id, float weight, string code, string description)
         {
+            TypeId = "CA";
             _id = id;
             _weight = weight;
             _code = code;
@@ -21,6 +23,7 @@ namespace OOD.Objects
         }
         public Cargo()
         {
+            TypeId = "CA";
             _id = -1;
             _weight=float.MinValue;
             _code = string.Empty;
@@ -32,7 +35,7 @@ namespace OOD.Objects
         public string Description { get { return _description; } set { _description = value; } }
         public override string ToString()
         {
-            return $"ID: {_id}, Weight: {_weight}, Code: {_code}, Description: {_description}";
+            return $"{TypeId} ID: {_id}, Weight: {_weight}, Code: {_code}, Description: {_description}";
         }
 
     }

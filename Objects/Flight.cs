@@ -11,6 +11,7 @@ namespace OOD.Objects
 {
     public class Flight
     {
+        public  string TypeId { get;}
         private long _id;
         private long _orginId;
         private long _targetId;
@@ -25,6 +26,7 @@ namespace OOD.Objects
         public Flight(long id, long orginId, long targetId, string takeoffTime, string landingTime, float longitude, 
             float latitude, float amsl, long planeId, List<long> crewIds, List<long> loadIds)
         {
+            TypeId = "FL";
             _id = id;
             _orginId = orginId;
             _targetId = targetId;
@@ -39,6 +41,7 @@ namespace OOD.Objects
         }
         public Flight()
         {
+            TypeId = "FL";
             _id = -1;
             _orginId = -1;
             _targetId = -1;
@@ -65,7 +68,7 @@ namespace OOD.Objects
 
         public override string ToString()
         {
-            return $"ID: {_id}, Origin ID: {_orginId}, Target ID: {_targetId}, Takeoff Time: {_takeoffTime}, " +
+            return $"{TypeId} ID: {_id}, Origin ID: {_orginId}, Target ID: {_targetId}, Takeoff Time: {_takeoffTime}, " +
                 $"Landing Time: {_landingTime}, Longitude: {_longitude}, Latitude: {_latitude}, AMSL: {_amsl}," +
                 $" Plane ID: {_planeId}, Crew IDs: [{string.Join(", ", _crewIds)}], Load IDs: [{string.Join(", ", _loadIds)}]";
         }

@@ -2,20 +2,31 @@
 using OOD.Objects;
 using OOD.Serializers;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Metrics;
 using System.Globalization;
+using System.Reflection;
 using System.Text.Json;
 using System.Xml.Serialization;
+using NetworkSourceSimulator;
 namespace OOD
 {
-    public static class OODEntry
+
+    public static partial class OODEntry
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("[74;104;111;297;315;310;314]".Substring(1, "[74;104;111;297;315;310;314]".Length - 2));
-            string F = "example_data.ftr";
-            var objs=ReadFile(F);
-            SerializeObjects("data.json", objs);
+            ThreadSnipet.test();
+            //CLI.Run();
+        }
 
+        
+        
+        public static void zad1()
+        {
+            string srcfile = "example_data.ftr";
+            var objs = ReadFile(srcfile);
+            string destfile = "data.json";
+            SerializeObjects(destfile, objs);
         }
         public static void SerializationExample()
         {
