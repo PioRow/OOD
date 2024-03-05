@@ -9,14 +9,16 @@ namespace OOD
         {
             public static void MessageReceiver()
             {
-                NetworkSourceSimulator.NetworkSourceSimulator nss = new NetworkSourceSimulator.NetworkSourceSimulator(
-                   Path.Combine(Directory.GetCurrentDirectory(), "example_data.ftr"), 100, 500);
-                nss.OnNewDataReady += MessageReader;
                 
+                nss.OnNewDataReady += MessageReader;
+                nss.Run();
 
             }
+            static NetworkSourceSimulator.NetworkSourceSimulator nss = new NetworkSourceSimulator.NetworkSourceSimulator(
+                   Path.Combine(Directory.GetCurrentDirectory(), "example_data.ftr"), 100, 500);
             public static void test()
             {
+                
                 Thread nT = new Thread(new ThreadStart(MessageReceiver));
                 nT.Start();
                 while(true)
@@ -31,7 +33,7 @@ namespace OOD
             }
             public static void MessageReader(object sender, NewDataReadyArgs args)
             {
-                Console.WriteLine(args.MessageIndex);
+                Console.WriteLine(nss.GetMessageAt(args.MessageIndex));
             }
         }
     }
