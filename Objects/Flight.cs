@@ -15,8 +15,8 @@ namespace OOD.Objects
         private long _id;
         private long _orginId;
         private long _targetId;
-        private string _takeoffTime;
-        private string _landingTime;
+        private DateTime _takeoffTime;
+        private DateTime _landingTime;
         private float _longitude;
         private float _latitude;
         private float _amsl;
@@ -30,8 +30,8 @@ namespace OOD.Objects
             _id = id;
             _orginId = orginId;
             _targetId = targetId;
-            _takeoffTime = takeoffTime;
-            _landingTime = landingTime;
+            _takeoffTime = DateTime.ParseExact(takeoffTime, "HH:mm", null);
+            _landingTime = DateTime.ParseExact(landingTime, "HH:mm", null);
             _longitude = longitude;
             _latitude = latitude;
             _amsl = amsl;
@@ -45,8 +45,8 @@ namespace OOD.Objects
             _id = -1;
             _orginId = -1;
             _targetId = -1;
-            _takeoffTime = String.Empty;
-            _landingTime = String.Empty;
+            _takeoffTime = DateTime.MinValue;
+            _landingTime = DateTime.MinValue;
             _longitude = float.MinValue;
             _latitude = float.MinValue;
             _amsl = float.MinValue;
@@ -57,8 +57,8 @@ namespace OOD.Objects
         public long Id { set {  _id = value; }get { return _id; } }
         public long OrginId { set { _orginId = value; }get { return _orginId; } }
         public long TargetId {  set { _targetId = value; } get {  return _targetId; } }
-        public string TakeOffTime {  set { _takeoffTime = value; } get { return _takeoffTime; } }
-        public string LandingTime { set { _landingTime = value; } get { return _landingTime; } }
+        public DateTime TakeOffTime {  set { _takeoffTime = value; } get { return _takeoffTime; } }
+        public DateTime LandingTime { set { _landingTime = value; } get { return _landingTime; } }
         public float Longitude { set { _longitude = value; } get { return _longitude; } }
         public float Latitude { set { _latitude = value; } get { return _latitude; } }
         public float Amsl { set { _amsl = value; } get { return _amsl; } }
