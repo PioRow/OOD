@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OOD.Objects
 {
-    public class Flight
+    public class Flight : IMyObject
     {
         public  string TypeId { get;}
         private long _id;

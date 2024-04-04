@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOD.Objects
 {
-    public  class Crew:Person
+    public  class Crew:Person,IMyObject
     {
         public  string TypeId { get; }
         private short _practice;

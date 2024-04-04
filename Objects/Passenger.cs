@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOD.Objects
 {
-    public class Passenger : Person
+    public class Passenger : Person, IMyObject
     {
         private string _class;
         private long _miles;

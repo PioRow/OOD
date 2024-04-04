@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOD.Visitors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOD.Objects
 {
-    public class PassengerPlane : Plane
+    public class PassengerPlane : Plane, IMyObject, IReportable
     {
         public string TypeId { get; }
         private short _firstClassSize;
@@ -36,5 +37,10 @@ namespace OOD.Objects
             return $"{TypeId} "+base.ToString()+ $"First Class Size: {_firstClassSize}, Second Class Size: {_secondClassSize}," +
                 $" Economy Class Size: {_economyClassSize}";
         }
+        public string accept(IMediaVisitor visitor)
+        {
+            return visitor.visit(this);
+        }
+
     }
 }

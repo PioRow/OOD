@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOD.Objects
 {
-    public class Cargo
+    public class Cargo : IMyObject
     {
         public  string TypeId { get;}
         private long _id;

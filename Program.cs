@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text.Json;
 using System.Xml.Serialization;
 using NetworkSourceSimulator;
+using FlightTrackerGUI;
 namespace OOD
 {
 
@@ -15,10 +16,13 @@ namespace OOD
     {
         public static void Main(string[] args)
         {
-            ThreadSnipet.test();
-            //CLI.Run();
+            Ex2();   
         }
-
+        public static void Ex2()
+        {
+            CLI.Init("example_data.ftr");
+            CLI.Run();
+        }
         
         
         public static void zad1()
@@ -42,18 +46,18 @@ namespace OOD
             using (StreamReader sr = new StreamReader("data.xml"))
             {
                 Crew nc = (Crew)ser.Deserialize(sr);
-                Console.WriteLine(nc.getid());
+                Console.WriteLine(nc.Id);
             }
 
         }
-        public static List<object> ReadFile(string filename)
+        public static List<IMyObject> ReadFile(string filename)
         {
             string path=Directory.GetCurrentDirectory();
             IDeserializer deserializer = new FTRDeserializer();
            return deserializer.deserialize(path + "\\" + filename);
 
         }
-        public static void SerializeObjects(string file, ICollection<object> objects)
+        public static void SerializeObjects(string file, ICollection<IMyObject> objects)
         {
             ISerializer serializer = new Serializers.JsonSerializer();
             serializer.serialize(file, objects);

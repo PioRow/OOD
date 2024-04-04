@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FlightTrackerGUI" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FlightTrackerGUI">
+      <HintPath>bin\Debug\net8.0\FlightTrackerGUI.dll</HintPath>
+    </Reference>
     <Reference Include="NetworkSourceSimulator">
       <HintPath>bin\Debug\net8.0\NetworkSourceSimulator.dll</HintPath>
     </Reference>

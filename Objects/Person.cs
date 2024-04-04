@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOD.Objects
 {
-    public class Person
+    public class Person : IMyObject
     {
         protected long _id;
         protected string _name;
@@ -21,10 +21,7 @@ namespace OOD.Objects
             _phone = phone;
             _email = email;
         }
-        public long getid()
-        {
-            return _id;
-        }
+        public string TypeId => "";
         public Person()
         {
             _id = -1L;

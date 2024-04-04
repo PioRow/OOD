@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOD.Visitors;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Xml.Linq;
 
 namespace OOD.Objects
 {
-    public class Airport
+    public class Airport:IMyObject, IReportable
     {
         public string TypeId { get; }
         private long _id;
@@ -52,6 +53,11 @@ namespace OOD.Objects
         {
             return $"{TypeId} ID: {_id}, Name: {_name}, Code: {_code}, Longitude: {_longitude}, Latitude: {_latiitude}" +
                 $", AMSL: {_amsl}, Country: {_country}";
+        }
+
+        public string accept(IMediaVisitor visitor)
+        {
+            return visitor.visit(this);
         }
     }
 }

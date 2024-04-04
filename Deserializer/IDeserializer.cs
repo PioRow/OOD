@@ -1,4 +1,5 @@
 ﻿using OOD.Factories;
+using OOD.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace OOD.Deserializer
 {
     public interface IDeserializer
     {
-        public  List<object> deserialize(string filepath);
+        public  List<IMyObject> deserialize(string filepath);
     }
     public class FTRDeserializer:IDeserializer
     {
@@ -27,9 +28,9 @@ namespace OOD.Deserializer
                  {"FL", new FTRFlightFactory() }
             };
         }
-        public List<object> deserialize(string filepath)
+        public List<IMyObject> deserialize(string filepath)
         {
-            List<object> result = new List<object>();
+            List<IMyObject> result = new List<IMyObject>();
             
             string? line;
             using (StreamReader sr = new StreamReader(filepath))
@@ -37,7 +38,7 @@ namespace OOD.Deserializer
                 line=sr.ReadLine();
                 while (line != null) { 
                     string[] fields = line.Split(",");
-                    object o = Factories[fields[0]].Produce(fields);
+                    IMyObject o = Factories[fields[0]].Produce(fields);
                     Console.WriteLine(o);
                     result.Add(o);
                     line = sr.ReadLine();

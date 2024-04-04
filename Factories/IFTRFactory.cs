@@ -9,7 +9,7 @@ namespace OOD.Factories
 {
     public interface IFTRFactory
     {
-        public object Produce(string[] values); 
+        public IMyObject Produce(string[] values); 
     }
     
 

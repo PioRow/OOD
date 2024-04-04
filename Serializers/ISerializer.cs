@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOD.Objects;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace OOD.Serializers
 {
     public interface ISerializer
     {
-        public void serialize(string file, ICollection<object> Objects);
+        public void serialize(string file, ICollection<IMyObject> Objects);
     }
 
 }

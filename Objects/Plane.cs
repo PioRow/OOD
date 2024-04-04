@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOD.Objects
 {
-    public class Plane
+    public abstract class Plane : IMyObject
     {
         protected long _id;
         protected string _serial;
@@ -26,6 +26,7 @@ namespace OOD.Objects
             _code=String.Empty;
             _model = String.Empty;
         }
+        public string TypeId => "";
         public long Id { get { return _id; } set { _id = value; } }
         public string Serial { get { return _serial; } set { _serial = value; } }
         public string Code { get { return _code; } set { _code = value; } }
@@ -35,5 +36,6 @@ namespace OOD.Objects
             return $"ID: {_id}, Serial: {_serial}, Code: {_code}, Model: {_model}";
         }
 
+        
     }
 }
